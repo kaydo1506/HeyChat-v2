@@ -1,11 +1,22 @@
 import React from 'react'
-import { MessageProps } from '../utilities/types'
+import { MessagesProps } from '../utilities/types'
 
 
-const Messages: React.FC<MessageProps> = ({message}) => {
+const Messages: React.FC<MessagesProps> = ({ messages, currentUser }) => {
   return (
-    <div>MessageComponent</div>
-  )
-}
+    <div className='pt-16'>
+      {messages.map((message) => (
+        <div
+          key={message.id}
+          className={`${
+            message.sender === currentUser ? 'text-right' : 'text-left'
+          } p-2`}
+        >
+          <span>{currentUser}: {message.text}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default Messages
