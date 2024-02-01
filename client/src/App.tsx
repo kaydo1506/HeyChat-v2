@@ -100,7 +100,7 @@ function App() {
       ws.current.send(JSON.stringify(newMessage));
     }
   };
-
+  console.log(messages);
   const clearError = () => setError(null);
 
   return (
