@@ -33,7 +33,7 @@ Visual Studio Code
 Git
 
 
-### Setup and Installation
+## Setup and Installation
 Clone the repository:
 git clone <repository-url>
 cd chat-application
