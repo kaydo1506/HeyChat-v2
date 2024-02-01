@@ -18,7 +18,7 @@ function App() {
     ws.current = new WebSocket('ws://localhost:8080');
 
     ws.current.onopen = () => {
-      console.log('Connected to the WebSocket server');
+      // console.log('Connected to the WebSocket server');
       setUserConnected(true);
     };
 
@@ -56,7 +56,7 @@ function App() {
       setUserConnected(false);
     };
   }, []);
-  console.log(userConnected);
+  console.log(`User connected: ${userConnected}`);
   const handleUsernameSubmit = (enteredUsername: string) => {
     if (enteredUsername.trim().length > 1) {
       setUsername(enteredUsername);
@@ -103,7 +103,6 @@ function App() {
 
   const clearError = () => setError(null);
 
-  console.log(messages);
   return (
     <BrowserRouter>
       <Routes>
