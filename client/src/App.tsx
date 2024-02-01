@@ -56,7 +56,7 @@ function App() {
       setUserConnected(false);
     };
   }, []);
-
+  console.log(userConnected);
   const handleUsernameSubmit = (enteredUsername: string) => {
     if (enteredUsername.trim().length > 1) {
       setUsername(enteredUsername);
@@ -122,7 +122,17 @@ function App() {
             )
           }
         />
-        <Route path='/chat' element={<ChatContainer handleLeave={handleLeave} messages={messages} username={username} handleSendMessage={handleSendMessage}/>} />
+        <Route
+          path='/chat'
+          element={
+            <ChatContainer
+              handleLeave={handleLeave}
+              messages={messages}
+              username={username}
+              handleSendMessage={handleSendMessage}
+            />
+          }
+        />
         <Route path='/home' element={<ChartContainer />} />
       </Routes>
     </BrowserRouter>
