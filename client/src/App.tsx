@@ -24,6 +24,7 @@ function App() {
 
     ws.current.onmessage = (event) => {
       // Message is received in Blob data so use a file reader to read result as string
+      console.log(event)
       if (event.data instanceof Blob) {
         const reader = new FileReader();
         reader.onload = () => {
@@ -56,7 +57,9 @@ function App() {
       setUserConnected(false);
     };
   }, []);
+
   console.log(`User connected: ${userConnected}`);
+
   const handleUsernameSubmit = (enteredUsername: string) => {
     if (enteredUsername.trim().length > 1) {
       setUsername(enteredUsername);
