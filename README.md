@@ -7,7 +7,7 @@ This Chat Application is a real-time communication platform where users can send
 ## Key Features
 
 -   **Real-time Messaging:** Send and receive message.
--   **User Authentication:** Simple authentication mechanism for users (A very simple implementation pls).
+-   **User Authentication:** Simple authentication mechanism for users (A veeery simple implementation).
 -   **Chat Room Functionality:** Users can join a chat room and communicate with others.
 -   **Data Visualisation:** Utilises scatter and line charts to provide insights into chat analytics.
 
