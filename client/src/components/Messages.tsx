@@ -13,9 +13,13 @@ const Messages: React.FC<MessagesProps> = ({ messages, currentUser }) => {
   };
 
   const renderCurrentUserMessage = (message: Message) => (
-    <div className='flex justify-end float-right items-end p-2 rounded-lg bg-blue-100 border border-blue-400 text-blue-700'>
-      <span>{message.text}</span>
-      <span className='italic text-xs text-slate-500 pl-2'>{message.time}</span>
+    <div className='flex'>
+      <div className='ml-auto flex justify-end items-end p-2 rounded-lg bg-blue-100 border border-blue-400 text-blue-700 '>
+        <span>{message.text}</span>
+        <span className='italic text-xs text-slate-500 pl-2'>
+          {message.time}
+        </span>
+      </div>
     </div>
   );
 
