@@ -13,6 +13,10 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const ws = useRef<WebSocket | null>(null);
 
+  console.log(messages);
+
+  const clearError = () => setError(null);
+
   const formatTime = () => {
     const now = new Date();
     let hours = now.getHours();
@@ -108,8 +112,6 @@ function App() {
     };
     ws.current && ws.current.send(JSON.stringify(newMessage));
   };
-  console.log(messages);
-  const clearError = () => setError(null);
 
   return (
     <BrowserRouter>
