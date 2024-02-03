@@ -11,20 +11,35 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [username, setUsername] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [userConnected, setUserConnected] = useState<Boolean>(false);
   const ws = useRef<WebSocket | null>(null);
+
+  const formatTime = () => {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12; // Convert to 12-hour format
+    hours = hours ? hours : 12; // The hour '0' should be '12'
+
+    return (
+      hours.toString().padStart(2, '0') +
+      ':' +
+      minutes.toString().padStart(2, '0') +
+      ' ' +
+      ampm
+    );
+  };
 
   useEffect(() => {
     ws.current = new WebSocket('ws://localhost:8080');
 
     ws.current.onopen = () => {
-      // console.log('Connected to the WebSocket server');
-      setUserConnected(true);
+      console.log('Connected to the WebSocket server');
     };
 
     ws.current.onmessage = (event) => {
       // Message is received in Blob data so use a file reader to read result as string
-      console.log(event)
       if (event.data instanceof Blob) {
         const reader = new FileReader();
         reader.onload = () => {
@@ -54,54 +69,44 @@ function App() {
 
     ws.current.onclose = () => {
       console.log('Disconnected from the WebSocket server');
-      setUserConnected(false);
     };
   }, []);
-
-  console.log(`User connected: ${userConnected}`);
 
   const handleUsernameSubmit = (enteredUsername: string) => {
     if (enteredUsername.trim().length > 1) {
       setUsername(enteredUsername);
-      // Add a "user joined" message
       const joinMessage = {
         text: `${enteredUsername} has joined the chat.`,
         sender: 'System',
+        time: formatTime(), // Add this line
         id: Date.now().toString(),
       };
-      if (ws.current) {
-        ws.current.send(JSON.stringify(joinMessage));
-      }
+      ws.current && ws.current.send(JSON.stringify(joinMessage));
       setError(null);
     } else {
       setError('Your username should be more than 1 character');
     }
   };
+
   const handleLeave = () => {
-    // Add a "user left" message
     const leaveMessage = {
       text: `${username} has left the chat.`,
       sender: 'System',
+      time: formatTime(), // Add this line
       id: Date.now().toString(),
     };
-
     ws.current && ws.current.send(JSON.stringify(leaveMessage));
-
-    // Clear username and connected state so that the user goes back to the entry form
-    setUserConnected(false);
     setUsername(null);
   };
 
   const handleSendMessage = (newMessageText: string) => {
-    // Send message to server
     const newMessage = {
       text: newMessageText,
       sender: username,
+      time: formatTime(), // Add this line
       id: Date.now().toString(),
     };
-    if (ws.current) {
-      ws.current.send(JSON.stringify(newMessage));
-    }
+    ws.current && ws.current.send(JSON.stringify(newMessage));
   };
   console.log(messages);
   const clearError = () => setError(null);

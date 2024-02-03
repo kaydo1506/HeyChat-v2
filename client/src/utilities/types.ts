@@ -3,6 +3,7 @@ export type Message = {
   id: string,
   text: string,
   sender: string | null
+  time: string
 }
 
 export type MessagesProps = {
