@@ -42,7 +42,7 @@ This Chat Application is a real-time communication platform where users can send
 
 ### Clone the repository:
 
-    git clone
+    git clone https://github.com/kaydo1506/HeyChat-v2.git 
 
 
  1. ### Using Docker Compose
