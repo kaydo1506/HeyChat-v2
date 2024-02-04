@@ -77,3 +77,15 @@ This is a chatroom designed to demonstrate real-time messaging capabilities, bas
     
     After starting both the frontend and backend, the application will
     be accessible at [http://localhost:3000](http://localhost:3000/).
+
+
+
+## Future Updates
+
+### Update User Authentication
+### Update Form Validation
+### Writing Tests
+### Database Integration
+### ...
+
+
