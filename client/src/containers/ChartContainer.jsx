@@ -5,12 +5,13 @@ import { Back } from '../utilities/icons';
 import { Link } from 'react-router-dom';
 
 const ChartContainer = () => {
+ 
   return (
     <div className=' bg-gray-900 text-white h-screen flex justify-center p-14'>
       <Link to='/chat'>
         <Back />
       </Link>
-      <div className='flex flex-col  items-center gap-12 w-1/2 mx-auto'>
+      <div className='flex flex-col  items-center gap-12 lg:w-1/2 w-11/12 mx-auto'>
         <ScatterChart />
         <LineChart />
       </div>

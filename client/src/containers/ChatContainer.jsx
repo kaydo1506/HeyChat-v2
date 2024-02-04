@@ -1,17 +1,13 @@
 import React from 'react';
 import Messages from '../components/Messages';
 import ChatInput from '../components/ChatInput';
+import { useChat } from '../utilities/context/ChatContext';
 import { Visualisation } from '../utilities/icons';
 import { Link } from 'react-router-dom';
 import { Back } from '../utilities/icons';
-import { ChatContainerProps } from '../utilities/types';
 
-const ChatContainer: React.FC<ChatContainerProps> = ({
-  handleLeave,
-  messages,
-  username,
-  handleSendMessage,
-}) => {
+const ChatContainer = () => {
+  const { handleLeave, messages, username, handleSendMessage } = useChat();
   // If the user is authenticated, show the chat room
   return (
     <div className=' bg-gray-900 '>

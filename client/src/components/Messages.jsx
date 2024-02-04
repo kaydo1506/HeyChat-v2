@@ -1,8 +1,7 @@
 import React from 'react';
-import { MessagesProps, Message } from '../utilities/types';
 
-const Messages: React.FC<MessagesProps> = ({ messages, currentUser }) => {
-  const renderMessageByType = (message: Message) => {
+const Messages = ({ messages, currentUser }) => {
+  const renderMessageByType = (message) => {
     if (message.sender === currentUser) {
       return renderCurrentUserMessage(message);
     } else if (message.sender === 'System') {
@@ -12,7 +11,7 @@ const Messages: React.FC<MessagesProps> = ({ messages, currentUser }) => {
     }
   };
 
-  const renderCurrentUserMessage = (message: Message) => (
+  const renderCurrentUserMessage = (message) => (
     <div className='flex'>
       <div className='ml-auto flex justify-end items-end p-2 rounded-lg bg-blue-100 border border-blue-400 text-blue-700 '>
         <span>{message.text}</span>
@@ -23,13 +22,13 @@ const Messages: React.FC<MessagesProps> = ({ messages, currentUser }) => {
     </div>
   );
 
-  const renderSystemMessage = (message: Message) => (
+  const renderSystemMessage = (message) => (
     <span className='flex justify-center italic text-xs text-slate-500'>
       {message.text}
     </span>
   );
 
-  const renderOtherUserMessage = (message: Message) => (
+  const renderOtherUserMessage = (message) => (
     <div className='flex flex-col bg-blue-950 w-fit rounded-lg'>
       <span className='text-xs text-orange-800 px-2 pt-1'>
         {message.sender}{' '}

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Chat Application is a real-time communication platform where users can send and receive messages instantly. It's designed to demonstrate real-time messaging capabilities, basic user authentication, chat room functionality, and includes data visualisation for chat analytics.
+This is a chatroom designed to demonstrate real-time messaging capabilities, basic user authentication, chat room functionality, and includes data visualisation for chat analytics.
 
 ## Key Features
 

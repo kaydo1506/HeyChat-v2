@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { ChatInputProps } from '../utilities/types';
 import { SendIcon } from '../utilities/icons';
 
-const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage }) => {
+const ChatInput = ({ onSendMessage }) => {
   const [input, setInput] = useState('');
 
-  const handleSend = (e: React.FormEvent) => {
+  const handleSend = (e) => {
     e.preventDefault();
     onSendMessage(input);
     setInput('');

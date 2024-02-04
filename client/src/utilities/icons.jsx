@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SendIcon: React.FC = () => (
+export const SendIcon = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 24 24'
@@ -11,7 +11,7 @@ export const SendIcon: React.FC = () => (
   </svg>
 );
 
-export const Back: React.FC = () => (
+export const Back  = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     fill='none'
@@ -27,7 +27,7 @@ export const Back: React.FC = () => (
     />
   </svg>
 );
-export const Visualisation: React.FC = () => (
+export const Visualisation = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     fill='none'
