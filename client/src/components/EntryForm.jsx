@@ -36,12 +36,16 @@ const EntryForm = () => {
     handleUsernameSubmit(localUsername);
     // Navigation to /chat will be handled by the useEffect hook once the username is set
   };
+  const noErrorClass =
+    'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline';
+  const errorClass =
+    'shadow appearance-none border-2 border-rose-500  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline';
 
   return (
-    <div className='flex items-center justify-center h-screen bg-gray-900 text-white'>
+    <div className='flex items-center justify-center h-screen bg-gray-900 text-white '>
       <form
         onSubmit={handleSubmit}
-        className='border border-blue-600 shadow-md rounded px-8 pt-6 pb-8 mb-4'
+        className='border border-blue-600 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80'
       >
         <div className='mb-4'>
           <label
@@ -51,7 +55,7 @@ const EntryForm = () => {
             Username
           </label>
           <input
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className={`${formError ? errorClass : noErrorClass}`}
             id='username'
             type='text'
             placeholder='Enter your username'
@@ -61,14 +65,13 @@ const EntryForm = () => {
               setFormError('');
             }}
           />
-          {formError && (
-            <span
-              className='block bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-1'
-              role='alert'
-            >
-              {formError}
-            </span>
-          )}{' '}
+          <span
+            className='block text-xs text-red-700   relative mt-1'
+            role='alert'
+          >
+            {formError && formError}
+          </span>
+
           {/* Render error message if any */}
         </div>
         <div className='flex items-center justify-between'>
