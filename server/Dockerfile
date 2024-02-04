@@ -18,3 +18,4 @@ EXPOSE 8080
 
 # Run server.js when the container launches
 CMD ["npm", "start"]
+
