@@ -9,7 +9,7 @@ const ScatterChart = () => {
   const data = processDataForScatterChart(messages);
 
   return (
-    <div className='flex-grow border rounded-md p-4 w-11/12'>
+    <div className='flex-grow border rounded-md p-4 w-full md:w-11/12 h-64 md:h-96'>
       <Scatter
         data={{
           datasets: [
@@ -45,6 +45,8 @@ const ScatterChart = () => {
               position: 'bottom',
             },
           },
+          responsive: true,
+          maintainAspectRatio: false,
         }}
       />
     </div>

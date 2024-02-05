@@ -63,7 +63,7 @@ const LineChart = () => {
   };
 
   return (
-    <div className='flex-grow border rounded-md p-4 w-11/12 '>
+    <div className='flex-grow border rounded-md p-4 w-full md:w-11/12 h-64 md:h-96'>
       <Line
         data={{
           labels: Array.from({ length: 60 }, (_, i) => i.toString()), // 0-59 minutes

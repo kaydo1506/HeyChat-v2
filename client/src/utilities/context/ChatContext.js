@@ -7,7 +7,8 @@ export const ChatProvider = ({ children }) => {
   const [username, setUsername] = useState(null);
   const [error, setError] = useState(null);
   const PORT = process.env.PORT || 8080;
-  const { messages, isConnected, sendMessage } = useWebSocket(`ws://localhost:${PORT}`);
+  const wsURL = process.env.REACT_APP_WS_URL || `ws://localhost:${PORT}`;
+  const { messages, isConnected, sendMessage } = useWebSocket(wsURL);
 
   const clearError = () => setError(null);
 
