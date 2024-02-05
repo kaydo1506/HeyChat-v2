@@ -82,10 +82,10 @@ This is a chatroom designed to demonstrate real-time messaging capabilities, bas
 
 ## Future Updates
 
-### Update User Authentication
-### Update Form Validation
-### Writing Tests
-### Database Integration
-### ...
+- *Update User Authentication*
+- *Update Form Validation*
+- *Writing Tests*
+- *Database Integration*
+- *...*
 
 
