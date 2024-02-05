@@ -6,7 +6,7 @@ const ChatContext = createContext();
 export const ChatProvider = ({ children }) => {
   const [username, setUsername] = useState(null);
   const [error, setError] = useState(null);
-  const { messages, sendMessage } = useWebSocket('ws://localhost:8080');
+  const { messages, isConnected, sendMessage } = useWebSocket('ws://localhost:8080');
 
   const clearError = () => setError(null);
 
@@ -95,6 +95,7 @@ export const ChatProvider = ({ children }) => {
         messages,
         sendMessage,
         formatTime,
+        isConnected,
         processDataForLineChart,
         processDataForScatterChart,
         handleUsernameSubmit,

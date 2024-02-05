@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useChat } from '../utilities/context/ChatContext';
 import { useNavigate } from 'react-router-dom';
+import ErrorMessage from './ErrorMessage';
 
 const EntryForm = () => {
   const { handleUsernameSubmit, username } = useChat();
   const [localUsername, setLocalUsername] = useState('');
   const [formError, setFormError] = useState('');
   const navigate = useNavigate();
+  const { isConnected } = useChat();
 
   useEffect(() => {
-    // If a username is already set, redirect to /chat
-    if (username) {
+    // If a username is already set and the connection is established, redirect to /chat
+    console.log(isConnected);
+    if (username && isConnected === true) {
       navigate('/chat');
     }
-  }, [username, navigate]);
+  }, [username, navigate, isConnected]);
 
   const validateUsername = (username) => {
     if (username.length < 2) {
@@ -22,6 +25,7 @@ const EntryForm = () => {
     if (!/^[A-Za-z].*/.test(username)) {
       return 'Username must start with a letter.';
     }
+
     return ''; // No error
   };
 
@@ -36,6 +40,7 @@ const EntryForm = () => {
     handleUsernameSubmit(localUsername);
     // Navigation to /chat will be handled by the useEffect hook once the username is set
   };
+
   const noErrorClass =
     'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline';
   const errorClass =
@@ -43,6 +48,9 @@ const EntryForm = () => {
 
   return (
     <div className='flex items-center justify-center h-screen bg-gray-900 text-white '>
+      {isConnected === false && (
+        <ErrorMessage message='The socket connection has closed, please refresh!' />
+      )}
       <form
         onSubmit={handleSubmit}
         className='border border-blue-600 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-80'
