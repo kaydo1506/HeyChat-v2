@@ -71,7 +71,7 @@ This is a chatroom designed to demonstrate real-time messaging capabilities, bas
     
     `cd server`
 
-    `npm install` 
+    `npm install-all` 
     
     `npm run dev`  
     
