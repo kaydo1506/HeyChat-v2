@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-app.use('/', express.static(path.resolve(__dirname, '../client')));
+app.use('/', express.static(path.resolve(__dirname, '../client/build/')));
 
 const myServer = app.listen(8080); // regular http server using node express which serves your webpage
 
@@ -33,7 +33,7 @@ wsServer.on('connection', function (ws) {
   });
 });
 
-  //  Listens for upgrade events on the HTTP server. The upgrade event is used to switch from HTTP to WebSocket
+//  Listens for upgrade events on the HTTP server. The upgrade event is used to switch from HTTP to WebSocket
 myServer.on('upgrade', async function upgrade(request, socket, head) {
   //  Uses a random number to decide whether to accept or reject the upgrade request. This is just for demonstration and not a pattern to follow in production.
   if (Math.random() > 0.5) {
