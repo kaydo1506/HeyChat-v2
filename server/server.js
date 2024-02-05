@@ -17,7 +17,6 @@ wsServer.on('connection', function (ws) {
   console.log('connection established');
   // For each connection, sets up an event listener for messages.
   ws.on('message', function (msg) {
-    console.log('received: %s', msg);
     // Broadcast
     // Iterates over all clients currently connected to the WebSocket server.
     wsServer.clients.forEach(function each(client) {
