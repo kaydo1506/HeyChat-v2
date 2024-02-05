@@ -78,7 +78,7 @@ This is a chatroom designed to demonstrate real-time messaging capabilities, bas
     After starting both the frontend and backend, the application will
     be accessible at [http://localhost:3000](http://localhost:3000/).
 
-3. ### You can also demo the app here [https://heychat-v2.onrender.com](https://heychat-v2.onrender.com)
+<!-- 3. ### You can also demo the app here [https://heychat-v2.onrender.com](https://heychat-v2.onrender.com) -->
    
 
 
