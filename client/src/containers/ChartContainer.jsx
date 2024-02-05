@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const ChartContainer = () => {
   return (
-    <div className=' bg-gray-900 text-white h-screen p-4 '>
+    <div className=' bg-gray-900 text-white h-full p-4 '>
       <Link to='/chat'>
         <Back />
       </Link>
