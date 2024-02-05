@@ -25,7 +25,6 @@ function useWebSocket(url) {
           const message = JSON.parse(reader.result);
 
           // Now that we have the message as an object, you can use it as before
-          console.log(message);
           setMessages((prevMessages) => {
             // Check if the message is already in the array by looking for its unique id
             const isDuplicate = prevMessages.some(
