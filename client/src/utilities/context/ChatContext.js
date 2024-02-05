@@ -6,11 +6,8 @@ const ChatContext = createContext();
 export const ChatProvider = ({ children }) => {
   const [username, setUsername] = useState(null);
   const [error, setError] = useState(null);
-  const wsURL =
-    process.env.NODE_ENV === 'development'
-      ? 'ws://localhost:8080'
-      : 'wss://https://heychat-v2.onrender.com/';
-  const { messages, isConnected, sendMessage } = useWebSocket(wsURL);
+  const PORT = process.env.PORT || 8080;
+  const { messages, isConnected, sendMessage } = useWebSocket(`ws://localhost:${PORT}`);
 
   const clearError = () => setError(null);
 

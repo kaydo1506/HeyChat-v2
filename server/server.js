@@ -4,8 +4,8 @@ const app = express();
 const path = require('path');
 
 app.use('/', express.static(path.resolve(__dirname, '../client/build/')));
-
-const myServer = app.listen(8080); // regular http server using node express which serves your webpage
+const PORT = process.env.PORT || 8080
+const myServer = app.listen(PORT); // regular http server using node express which serves your webpage
 
 const wsServer = new WebSocket.Server({
   noServer: true,
