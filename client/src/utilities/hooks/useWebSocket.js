@@ -1,13 +1,17 @@
 // useWebSocket.js
 import { useEffect, useRef, useState } from 'react';
 
-function useWebSocket(url) {
-  const ws = useRef(null);
+function useWebSocket() {
+  const wsURL =
+    process.env.NODE_ENV === 'development'
+      ? 'ws://localhost:8080'
+      : 'wss://https://heychat-v2.onrender.com/';
+  const ws = useRef(wsURL);
   const [messages, setMessages] = useState([]);
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    ws.current = new WebSocket(url);
+    ws.current = new WebSocket();
     ws.current.onopen = () => {
       console.log('WebSocket connection established');
       setIsConnected(true);
@@ -63,7 +67,7 @@ function useWebSocket(url) {
     return () => {
       ws.current.close();
     };
-  }, [url]);
+  }, []);
 
   const sendMessage = (message) => {
     ws.current && ws.current.send(JSON.stringify(message));
