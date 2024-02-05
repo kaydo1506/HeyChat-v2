@@ -5,9 +5,8 @@ import { Back } from '../utilities/icons';
 import { Link } from 'react-router-dom';
 
 const ChartContainer = () => {
- 
   return (
-    <div className=' bg-gray-900 text-white h-screen flex justify-center p-2 md:p-14'>
+    <div className=' bg-gray-900 text-white h-screen p-4 '>
       <Link to='/chat'>
         <Back />
       </Link>

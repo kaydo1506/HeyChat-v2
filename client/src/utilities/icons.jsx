@@ -11,14 +11,14 @@ export const SendIcon = () => (
   </svg>
 );
 
-export const Back  = () => (
+export const Back = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     fill='none'
     viewBox='0 0 24 24'
     strokeWidth={1.5}
     stroke='currentColor'
-    className='md:w-10 md:h-10 w-6 h-6 bg-blue-600 rounded-full p-2 m-2'
+    className='md:w-10 md:h-10 w-8 h-8 bg-blue-600 rounded-full p-2 m-2'
   >
     <path
       strokeLinecap='round'
@@ -34,7 +34,7 @@ export const Visualisation = () => (
     viewBox='0 0 24 24'
     strokeWidth={1.5}
     stroke='currentColor'
-    className='md:w-10 md:h-10 w-6 h-6 bg-blue-600 rounded-full p-2 m-2'
+    className='md:w-10 md:h-10 w-8 h-8 bg-blue-600 rounded-full p-2 m-2'
   >
     <path
       strokeLinecap='round'
