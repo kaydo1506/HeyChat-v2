@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-app.use('/', express.static(path.resolve(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 const myServer = app.listen(8080); // regular http server using node express which serves your webpage
 
