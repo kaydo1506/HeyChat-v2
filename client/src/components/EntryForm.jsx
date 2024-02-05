@@ -12,7 +12,6 @@ const EntryForm = () => {
 
   useEffect(() => {
     // If a username is already set and the connection is established, redirect to /chat
-    console.log(isConnected);
     if (username && isConnected === true) {
       navigate('/chat');
     }
