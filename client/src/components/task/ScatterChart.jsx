@@ -5,8 +5,9 @@ import { Scatter } from 'react-chartjs-2';
 ChartJS.register(...registerables);
 
 const ScatterChart = () => {
-     const { processDataForScatterChart, messages } = useChat();
-     const data = processDataForScatterChart(messages);
+  const { processDataForScatterChart, messages } = useChat();
+  const data = processDataForScatterChart(messages);
+
   return (
     <div className='flex-grow border rounded-md p-4 w-11/12'>
       <Scatter
@@ -49,6 +50,5 @@ const ScatterChart = () => {
     </div>
   );
 };
-
 
 export default ScatterChart;
